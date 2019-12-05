@@ -23,12 +23,13 @@ class HomeComponent extends Component {
     //calling this function here so that the data will be loaded for user
     //as soon as app loads up
   }
-  handleFormChange(e){
-  	// console.log(e)
-  	// console.log(e.currentTarget.children)
-  	// console.log(e.currentTarget.children[0])
+  handleFormChange = (e) => {
   	// console.log(e.currentTarget.children[0].textContent)
   	const chosenProfession = e.currentTarget.children[0].textContent;
+  	console.log(chosenProfession);
+  	this.setState({field: chosenProfession});
+  	console.log('STATE >>', this.state);
+  	console.log("Results >>", this.state.field);
     //create setState!!!!!!!!
   }
   handleFormSumbit(){
@@ -45,11 +46,17 @@ class HomeComponent extends Component {
   		lineHeight: "64pt",
   		fontSize: "100pt",
   	}
+  	const dropDownStyle = {
+  		width: "30%",
+  	}
+
   	return(<div className='home'>
-  		<h1>"Tie"</h1>
+  		<h1 className='tie'>Galstuk</h1>
+  		<h2>Russian-speaking professionals</h2>
  	
   		<form style={formStyle} onSubmit={this.handleFormSumbit}>
-  		<DropDownComponent change={this.handleFormChange}/>
+  		<DropDownComponent isField={true} style={dropDownStyle} change={this.handleFormChange}/>
+  		<DropDownComponent isArea={true} style={dropDownStyle} change={this.handleFormChange}/>
   		<input type='submit' value="find" />
   		</form>
   		

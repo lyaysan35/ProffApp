@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
 }
 
 .App-logo {
@@ -22,9 +27,22 @@
 }
 
 .home {
-  background-image: url('/8.jpg');
+  background-image: url('/galstuk_5.jpg');
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.dropDownStyle {
+  width: 25%;
+}
+
+
+.tie {
+  font-size: 55px;
+}
+
+
+
+

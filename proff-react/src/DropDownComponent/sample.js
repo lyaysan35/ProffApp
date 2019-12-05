@@ -4,45 +4,57 @@ import { Dropdown } from 'semantic-ui-react'
 // console.log(this)
 const friendOptions = [
   {
-    key: 'Jenny Hess',
-    text: 'Jenny Hess',
-    value: 'Jenny Hess',
+    key: 'medicine',
+    text: 'medicine',
+    value: 'medicine',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/jenny.jpg' },
   },
   {
-    key: 'Elliot Fu',
-    text: 'Elliot Fu',
-    value: 'Elliot Fu',
+    key: 'real estate',
+    text: 'real estate',
+    value: 'real estate',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/elliot.jpg' },
   },
   {
-    key: 'Stevie Feliciano',
-    text: 'Stevie Feliciano',
-    value: 'Stevie Feliciano',
+    key: 'beauty',
+    text: 'beauty',
+    value: 'beauty',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/stevie.jpg' },
   },
   {
-    key: 'Christian',
-    text: 'Christian',
-    value: 'Christian',
+    key: 'art',
+    text: 'art',
+    value: 'art',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/christian.jpg' },
   },
   {
-    key: 'Matt',
-    text: 'Matt',
-    value: 'Matt',
+    key: 'law',
+    text: 'law',
+    value: 'law',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/matt.jpg' },
   },
   {
-    key: 'Justen Kitsune',
-    text: 'Justen Kitsune',
-    value: 'Justen Kitsune',
+    key: 'food',
+    text: 'food',
+    value: 'food',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/justen.jpg' },
   },
-]
+];
 
-const DropdownExampleSelection = (props) => (
-  <Dropdown placeholder='Select Field' fluid selection options={friendOptions} onChange={props.change}/>
-)
+const locationOptions = []; // fill this in
+
+
+const DropdownExampleSelection = (props) => {
+  let placeholder;
+  let options;
+  if(props.isField) {
+    placeholder = "Select Field"; 
+    options = friendOptions;
+  } else if(props.isArea) {
+    placeholder = "Location";
+    options = locationOptions;
+  }
+      return (<Dropdown placeholder={placeholder} selection options={options} onChange={props.change}/>)
+}
 
 export default DropdownExampleSelection;
