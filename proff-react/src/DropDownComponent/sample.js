@@ -2,59 +2,110 @@ import React, { Component } from "react";
 import { Dropdown } from 'semantic-ui-react'
 // import ReactDOM from "react-dom";
 // console.log(this)
-const friendOptions = [
+const fieldOptions = [
   {
-    key: 'medicine',
-    text: 'medicine',
-    value: 'medicine',
+    key: 'Any',
+    text: 'Any',
+    value: 'Any',
+  },
+  {
+    key: 'Medicine',
+    text: 'Medicine',
+    value: 'Medicine',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/jenny.jpg' },
   },
   {
-    key: 'real estate',
-    text: 'real estate',
-    value: 'real estate',
+    key: 'Real Estate',
+    text: 'Real Estate',
+    value: 'Real Estate',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/elliot.jpg' },
   },
   {
-    key: 'beauty',
-    text: 'beauty',
-    value: 'beauty',
+    key: 'Beauty',
+    text: 'Beauty',
+    value: 'Beauty',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/stevie.jpg' },
   },
   {
-    key: 'art',
-    text: 'art',
-    value: 'art',
+    key: 'Art',
+    text: 'Art',
+    value: 'Art',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/christian.jpg' },
   },
   {
-    key: 'law',
-    text: 'law',
-    value: 'law',
+    key: 'Law',
+    text: 'Law',
+    value: 'Law',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/matt.jpg' },
   },
   {
-    key: 'food',
-    text: 'food',
-    value: 'food',
+    key: 'Food',
+    text: 'Food',
+    value: 'Food',
     // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/justen.jpg' },
   },
 ];
 
-const locationOptions = []; // fill this in
+const locationOptions = [
+  {
+    key: 'Any',
+    text: 'Any',
+    value: 'Any',
+  },
+  {
+    key: 'Denver',
+    text: 'Denver',
+    value: 'Denver',
+    // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/jenny.jpg' },
+  },
+  {
+    key: 'Aurora',
+    text: 'Aurora',
+    value: 'Aurora',
+    // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/elliot.jpg' },
+  },
+  {
+    key: 'Boulder',
+    text: 'Boulder',
+    value: 'Boulder',
+    // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/stevie.jpg' },
+  },
+  {
+    key: 'Fort Collins',
+    text: 'Fort Collins',
+    value: 'Fort Collins',
+    // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/christian.jpg' },
+  },
+  {
+    key: 'Colorado Springs',
+    text: 'Colorado Springs',
+    value: 'Colorado Springs',
+    // image: { avatar: true, src: 'https://react.semantic-ui.com/images/avatar/small/jenny.jpg' },
+  },
+
+]; // fill this in
 
 
 const DropdownExampleSelection = (props) => {
   let placeholder;
   let options;
+  let name;
   if(props.isField) {
+    name="field";
     placeholder = "Select Field"; 
-    options = friendOptions;
+    options = fieldOptions;
   } else if(props.isArea) {
+    name="location"
     placeholder = "Location";
     options = locationOptions;
   }
-      return (<Dropdown placeholder={placeholder} selection options={options} onChange={props.change}/>)
+  return <Dropdown 
+    name={name} 
+    placeholder={placeholder} 
+    selection 
+    options={options} 
+    onChange={(e, { name, value }) => props.change(name, value)}
+  />
 }
 
 export default DropdownExampleSelection;

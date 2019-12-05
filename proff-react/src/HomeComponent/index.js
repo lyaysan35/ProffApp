@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Form, Label, Button, Message, Dropdown } from 'semantic-ui-react';
 // import { Link } from 'react-router-dom';
-// import Login from '../Login';
-// import Register from '../Register';
+import Login from '../Login';
+import Signup from '../Signup';
 import DropDownComponent from '../DropDownComponent/sample.js';
 
 class HomeComponent extends Component {
@@ -23,17 +23,26 @@ class HomeComponent extends Component {
     //calling this function here so that the data will be loaded for user
     //as soon as app loads up
   }
-  handleFormChange = (e) => {
+  handleFormChange = (name, value) => {
+  	console.log('Chosen', name, ':', value)
   	// console.log(e.currentTarget.children[0].textContent)
-  	const chosenProfession = e.currentTarget.children[0].textContent;
-  	console.log(chosenProfession);
-  	this.setState({field: chosenProfession});
-  	console.log('STATE >>', this.state);
-  	console.log("Results >>", this.state.field);
+  	this.setState({[name]: value});
+  	console.log('STATE', this.state);
+  	console.log("Results", this.state.field);
     //create setState!!!!!!!!
   }
-  handleFormSumbit(){
+  handleFormSumbit = (e) => {
+  	e.preventDefault();
+  	try {
 
+  		// Fetch professionals that match the query
+  		// Use get
+  		// Use query string
+  		let queryString = `?field=${this.state.field}&location=${this.state.location}`
+  		console.log(queryString)
+  	} catch (err) {
+
+  	}
   }
   render(){
   	const formStyle = {
