@@ -61,7 +61,7 @@ class HomeComponent extends Component {
 
   	return(<div className='home'>
   		<h1 className='tie'>Galstuk</h1>
-  		<h2>Russian-speaking professionals</h2>
+  		<h2 className='logo'>Russian-speaking professionals</h2>
  	
   		<form style={formStyle} onSubmit={this.handleFormSumbit}>
   		<DropDownComponent isField={true} style={dropDownStyle} change={this.handleFormChange}/>

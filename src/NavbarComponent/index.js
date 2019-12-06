@@ -1,14 +1,15 @@
 import React from 'react'
-import { Dropdown, Menu, Button } from 'semantic-ui-react'
+import { Dropdown, Menu, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const NavbarComponent = () => (
   <Menu>
   <Menu.Item>
-      <Button primary>Sign up</Button>
+      <Link to="/signup">Sign up</Link>
     </Menu.Item>
 
     <Menu.Item>
-      <Button>Log-in</Button>
+      <Link to="/login">Log-in</Link>
     </Menu.Item>
     <Dropdown item text='Categories'>
       <Dropdown.Menu>

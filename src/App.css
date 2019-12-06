@@ -41,12 +41,24 @@
 
 .tie {
   font-size: 55px;
-  color: brown;
+  color: #900C3F;
+  font-weight: bold;
+  font-family: 'Alatsi', sans-serif;
+  font-family: 'Solway', serif;
 }
 
 h2
 {
-  color: brown;
+ /* color: #900C3F;*/
+  color: #C70039;
 }
 
-
+.logo {
+  font-size: 28px;
+  font-family: 'Alatsi', sans-serif;
+  font-family: 'Solway', serif;
+  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Calistoga', cursive;
+  font-family: 'Abril Fatface', cursive;
+  font-family: 'Acme', sans-serif;
+}
