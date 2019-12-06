@@ -52,7 +52,7 @@ class Login extends Component {
   render() {
     return (
       <Container className='container'>
-      <Form onSubmit={this.handleSubmit}>
+      <Form className='form' onSubmit={this.handleSubmit}>
         <h4>Login</h4>
         <Label>Email</Label>
         <Form.Input type="email" name="email" onChange={this.handleChange} required />

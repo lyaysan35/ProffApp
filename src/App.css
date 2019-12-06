@@ -65,9 +65,14 @@ h2
 
 .container {
   color: blue;
+  background-size: 10%;
 }
 
 
-
+form.ui.form {
+ 
+  max-width: 400px;
+  margin: 0 auto;
+}
 
 
