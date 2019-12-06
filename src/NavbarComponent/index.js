@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const NavbarComponent = () => (
   <Menu>
   <Menu.Item>
-      <Link to="/signup">Sign up</Link>
+      <Link to="/register">Register</Link>
     </Menu.Item>
 
     <Menu.Item>

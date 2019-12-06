@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Label, Button, Message, Dropdown } from 'semantic-ui-react';
 // import { Link } from 'react-router-dom';
 import Login from '../Login';
-import Signup from '../Signup';
+import Register from '../Register';
 import DropDownComponent from '../DropDownComponent/sample.js';
 
 class HomeComponent extends Component {
