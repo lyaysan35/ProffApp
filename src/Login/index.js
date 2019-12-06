@@ -51,14 +51,14 @@ class Login extends Component {
 
   render() {
     return (
-      <Container>
+      <Container className='container'>
       <Form onSubmit={this.handleSubmit}>
-        <h4>Sign In</h4>
+        <h4>Login</h4>
         <Label>Email</Label>
         <Form.Input type="email" name="email" onChange={this.handleChange} required />
         <Label>Password</Label>
         <Form.Input type="password" name="password" onChange={this.handleChange} required />
-        <Button type="submit" color="green">Login</Button>
+        <Button type="submit" color="orange">Sign In</Button>
         { this.state.errorMsg ? <Message negative>{this.state.errorMsg}</Message> : null }
       </Form>
       </Container>

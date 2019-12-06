@@ -9,7 +9,13 @@ const NavbarComponent = () => (
     </Menu.Item>
 
     <Menu.Item>
-      <Link to="/login">Log-in</Link>
+      <Link to="/login">Login</Link>
+    </Menu.Item>
+    <Menu.Item>
+    <Link to="/">Galstuk</Link>
+    </Menu.Item>
+    <Menu.Item>
+    <Link to='/'>Your account</Link>
     </Menu.Item>
     <Dropdown item text='Categories'>
       <Dropdown.Menu>

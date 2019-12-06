@@ -53,7 +53,7 @@ class Register extends Component {
           <Form.Input type="email" name="email" onChange={this.handleChange} required />
           <Label>Password</Label>
           <Form.Input type="password" name="password" onChange={this.handleChange} required />
-          <Button type="submit" color="green">Sign Up</Button>
+          <Button type="submit" color="orange">Sign Up</Button>
           { this.state.errorMsg ? <Message negative>{this.state.errorMsg}</Message> : null }
         </Form>
       </Container>
