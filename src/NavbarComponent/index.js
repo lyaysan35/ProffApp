@@ -17,13 +17,7 @@ const NavbarComponent = () => (
     <Menu.Item>
     <Link to='/'>Your account</Link>
     </Menu.Item>
-    <Dropdown item text='Categories'>
-      <Dropdown.Menu>
-        <Dropdown.Item>Electronics</Dropdown.Item>
-        <Dropdown.Item>Automotive</Dropdown.Item>
-        <Dropdown.Item>Home</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+    
   </Menu>
 )
 
