@@ -67,44 +67,6 @@ class ProfessionalContainer extends Component {
       console.log(err);
     }
   }
-  addProfessional = async (e, professionalFromForm) => {
-    professionalFromForm.userId = this.props.userId;
-    console.log('professionalForm >>', professionalFromForm);
-      e.preventDefault();
-      try {
-
-        // We have to send JSON
-        // createdProfessionalResponse variable will store the response from the express API
-        const createdProfessionalResponse = await fetch(process.env.REACT_APP_API_URL + '/api/v1/professionals/', {
-          method: 'POST',
-          body: JSON.stringify(professionalFromForm),
-          credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        });
-  
-        // we have to turn the response from flask into
-        // an object we can use
-        const parsedResponse = await createdProfessionalResponse.json();
-        console.log(parsedResponse, ' this is response')
-        
-        // we are emptying all the professionals that are living in state into a new array,
-        // and then adding the professional we just created to the end of it
-        // the new professional which is called parsedResponse.data
-        
-        this.setState({professionals: [...this.state.professionals, parsedResponse.data]})
-        //... it is empting the sate and putting it into the new array
-        //then we are adding in our new object
-
-  
-      } catch(err){
-        console.log('error')
-        console.log(err)
-      }
-      // request address will start with 'http://localhost:9000'
-      // becuase after we create it, we want to add it to the professionals array
-  }
   deleteProfessional = async (idOfProfessional) => {
     console.log(idOfProfessional)
     const deleteProfessionalResponse = await fetch(process.env.REACT_APP_API_URL + '/api/v1/professionals/' + idOfProfessional, {
