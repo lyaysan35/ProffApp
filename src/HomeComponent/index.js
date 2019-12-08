@@ -76,7 +76,7 @@ class HomeComponent extends Component {
   		<form style={formStyle} onSubmit={this.handleFormSumbit}>
   		<DropDownComponent isField={true} style={dropDownStyle} change={this.handleFormChange}/>
   		<DropDownComponent isArea={true} style={dropDownStyle} change={this.handleFormChange}/>
-  		<input type='submit' value="find" />
+  		<Button primary type='submit'>Find</Button>
   		</form>
   		
   		</div>
