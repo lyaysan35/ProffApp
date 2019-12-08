@@ -13,7 +13,7 @@ class NavbarComponent extends Component {
     method: 'post', body: {}}).catch(err => {
       console.log('ERROR Logging Out >>', err);
     });
-    this.props.onLogout();
+    this.props.onLogout()
   }
 
   render() {
@@ -26,9 +26,9 @@ class NavbarComponent extends Component {
         <Link to='/'>Your account</Link>
         </Menu.Item>
         {
-          (this.props.userId) ?
+          (this.props.activeSession) ?
             <Menu.Item>
-              <a  onClick={() => this.onLogout()}>Logout</a>
+              <a href="#" onClick={() => this.onLogout()}>Logout</a>
             </Menu.Item>
             :
             <Menu.Item>

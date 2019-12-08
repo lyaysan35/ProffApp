@@ -131,9 +131,14 @@ class ProfessionalContainer extends Component {
   }
   render(){
     console.log(this.state.professionals);
-    console.log(this.props.userId);
     let userProfessionals;
-    (this.props.userId) ? userProfessionals = this.state.professionals.filter(p => parseInt(p.userId) === this.props.userId) : userProfessionals = this.state.professionals;
+    // If this component receives a filtered list of professionals, use that filtered list
+    // Otherwise, use a list of all professionals
+    if(this.props.location.state) {
+      userProfessionals = this.props.location.state.professionals.data;
+    } else {
+      userProfessionals = this.state.professionals;
+    }
     return (
       <div style={{marginTop: '10px', backgroundColor: '#C1F9F7', minHeight: '100vh', height: '100%'}}>
         <Grid columns={2}  style={{ height: '100%' }} verticalAlign='top' stackable>

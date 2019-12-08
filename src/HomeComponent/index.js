@@ -31,17 +31,27 @@ class HomeComponent extends Component {
   	console.log("Results", this.state.field);
     //create setState!!!!!!!!
   }
-  handleFormSumbit = (e) => {
+  handleFormSumbit = async (e) => {
   	e.preventDefault();
   	try {
 
   		// Fetch professionals that match the query
-  		// Use get
-  		// Use query string
   		let queryString = `?field=${this.state.field}&location=${this.state.location}`
-  		console.log(queryString)
+  		const searchResponse = await fetch(process.env.REACT_APP_API_URL + 
+            '/api/v1/professionals/search' + queryString);
+      
+      // make the response into JSON so we can access its properties like an object
+      const searchResponseParsed = await searchResponse.json();
+      console.log('search response', searchResponseParsed);
+  		console.log(queryString);
+      // make browser load the ProfListComponent
+      // send the filtered list of Professionals to the ProfListComponent
+  		this.props.history.push({
+  			pathname: '/profList',
+  			state: { professionals: searchResponseParsed }
+		});
   	} catch (err) {
-
+  		console.log('Error', err);
   	}
   }
   render(){
