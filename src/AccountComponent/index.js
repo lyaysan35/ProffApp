@@ -21,7 +21,6 @@ class AccountComponent extends Component {
     // This is the parsed response from professional
     const deleteProfessionalParsed = await deleteProfessionalResponse.json();
     console.log(deleteProfessionalParsed);
-    this.props.endSession();
     this.props.history.push('/');
   }
 
