@@ -21,6 +21,7 @@ const default404 = () => {
 };
 
 const defaultUser = {
+  id: 1,
   name: 'Emperor Brian',
   field: 'Trouble-Making',
   subfield: 'Messes',

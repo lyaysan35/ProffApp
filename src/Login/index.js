@@ -39,6 +39,7 @@ class Login extends Component {
       console.log('Sign up successful');
       console.log('PROPS >>', this.props);
       localStorage.setItem('sessionId', parsedResponse.data.id);
+      //
       this.props.onLogin();
       // this.props.onLogin(parsedResponse.data.id);
       this.props.history.push('/'); // Change url to /places programmatically with react-router

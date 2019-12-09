@@ -5,8 +5,22 @@ class AccountComponent extends Component {
   constructor(props) {
     super(props)
 
+    console.log(props.professional)
+
     this.state= {
-      editedProfessional: ''
+      id: this.props.professional.id,
+      name: this.props.professional.name,
+      field: this.props.professional.field,
+      subfield: this.props.professional.subfield,
+      location: this.props.professional.location,
+      bio: this.props.professional.bio,
+      // 1. Add all fields here
+      // 2. Add name attribute to inputs in the form
+      // 3. Add the handeChange method to this class
+      // 4. Change onClick = this.props.handleChange to this.handleChange in inputs
+      // 5. Change the body of the put request to 'state' instead of 'editedProfessional' line 41
+      // 6. Find out why this.props.professional.id is 'undefined' and fix => could
+      // set it in state like other properties and use the state instead of props
     };
   }
 
@@ -27,9 +41,9 @@ class AccountComponent extends Component {
   editProfessional = async() => {
     try {
       const editResponse = await fetch(process.env.REACT_APP_API_URL + 
-        '/api/v1/professionals/' + this.state.professional.id, {
+        '/api/v1/professionals/' + this.state.id, {
             method: 'PUT',
-            body: JSON.stringify(this.state.editedProfessional),
+            body: JSON.stringify(this.state),
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,6 +63,10 @@ class AccountComponent extends Component {
     e.preventDefault();
   }
 
+
+handleChange = (e) => {
+    this.setState({[e.currentTarget.name]: e.currentTarget.value})
+  }
   render() {
     return(
       <div>
@@ -77,36 +95,42 @@ class AccountComponent extends Component {
           header='Edit your professional details!'
           content='Fill out the form below to update or change details'
         />
+     
         <Form className='attached fluid segment'>
           <Form.Group widths='equal'>
             <Form.Input
               fluid
               label='Name'
-              placeholder={ this.props.professional.name }
+              name='name'
+              value={ this.state.name } onChange={this.handleChange}
               type='text'
-            />
+             />
             <Form.Input
               fluid
               label='Field'
-              placeholder={ this.props.professional.field }
+              name='field'
+              value={ this.state.field } onChange={this.handleChange}
               type='text'
             />
             <Form.Input
               fluid
               label='Subfield'
-              placeholder={ this.props.professional.subfield }
+              name='subfield'
+              value={ this.state.subfield } onChange={this.handleChange}
               type='text'
             />
             <Form.Input
               fluid
               label='Location'
-              placeholder={ this.props.professional.location }
+              name='location'
+              value={ this.state.location } onChange={this.handleChange}
               type='text'
             />
             <Form.Input
               fluid
               label='Bio'
-              placeholder={ this.props.professional.bio }
+              name='bio'
+              value={ this.state.bio } onChange={this.handleChange}
               type='text'
             />
           </Form.Group>
