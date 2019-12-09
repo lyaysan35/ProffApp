@@ -133,16 +133,16 @@ class ProfessionalContainer extends Component {
     console.log(this.state.professionals);
     let userProfessionals;
     // If this component receives a filtered list of professionals, use that filtered list
-    // Otherwise, use a list of all professionals
+    // Otherwise, use a list of all
     if(this.props.location.state) {
       userProfessionals = this.props.location.state.professionals.data;
     } else {
       userProfessionals = this.state.professionals;
     }
     return (
-      <div style={{marginTop: '10px', backgroundColor: '#C1F9F7', minHeight: '100vh', height: '100%'}}>
+      <div style={{marginTop: '10px', backgroundColor: 'white', minHeight: '100vh', height: '100%'}}>
         <Grid columns={2}  style={{ height: '100%' }} verticalAlign='top' stackable>
-        <Grid.Row style={{backgroundColor: '#C1F9F7'}}>
+        <Grid.Row style={{backgroundColor: 'white'}}>
           <Grid.Column>
             <ProfComponent openEditModal={this.openEditModal} professionals={userProfessionals} userId={this.props.userId} deleteProfessional={this.deleteProfessional}/>
           </Grid.Column>

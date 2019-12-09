@@ -10,6 +10,7 @@ import Rating from './Rating';
 import Login from './Login';
 import Register from './Register';
 import CreateProfForm from './CreateProfForm';
+import AccountComponent from './AccountComponent';
 
 const default404 = () => {
   return (
@@ -19,16 +20,22 @@ const default404 = () => {
   )
 };
 
+const defaultUser = {
+  name: 'Emperor Brian',
+  field: 'Trouble-Making',
+  subfield: 'Messes',
+  location: 'Denver, CO',
+  bio: 'I like mee-mee, cartoons, and baby cars'
+};
+
 class App extends Component {
   constructor() {
     super()
 
     this.state = {
-      activeSession: undefined
+      activeSession: localStorage.getItem('sessionId'),
+      user: ''
     };
-
-    this.endSession.bind(this);
-    this.beginSession.bind(this);
   }
 
   endSession = () => {
@@ -43,9 +50,15 @@ class App extends Component {
   beginSession = () => {
     this.setState({
       activeSession: localStorage.getItem('sessionId')
-    })
+    });
     console.log('Active Session:', this.state.activeSession);
     console.log('SessionId', localStorage.getItem('sessionId'));
+  }
+
+  updateProf = (updatedProf) => {
+    this.setState({
+      user: updatedProf
+    });
   }
 
   render() {
@@ -57,9 +70,10 @@ class App extends Component {
             <Route exact path="/prof" render={(props) => <ProfComponent {...props} /> } />
             <Route exact path="/profList" render={(props) => <ProfListComponent {...props} /> } />
             <Route exact path="/login" render={(props) => <Login {...props} onLogin={ this.beginSession } /> } />
-            <Route exact path="/register" render={(props) => <Register {...props} /> } />
+            <Route exact path="/register" render={(props) => <Register {...props} onRegister={ this.beginSession } /> } />
             <Route exact path="/rating" render={(props) => <Rating {...props} /> } />
-            <Route exact path="/create" render={(props) => <CreateProfForm {...props} /> } />
+            <Route exact path="/create" render={(props) => <CreateProfForm {...props} updateProf={ this.updateProf } /> } />
+            <Route exact path="/account" render={(props) => <AccountComponent {...props} professional={ this.state.user || defaultUser } updateProf={ this.updateProf } endSession={ this.endSession } /> } />
             <Route component={ default404 } />
           </Switch>
       </div>

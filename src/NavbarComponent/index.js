@@ -22,9 +22,12 @@ class NavbarComponent extends Component {
         <Menu.Item>
           <Link to="/">Galstuk</Link>
         </Menu.Item>
-        <Menu.Item>
-        <Link to='/'>Your account</Link>
-        </Menu.Item>
+        {
+          (this.props.activeSession) ?
+            <Menu.Item>
+              <Link to='/account'>Your account</Link>
+            </Menu.Item> : ''
+        }
         {
           (this.props.activeSession) ?
             <Menu.Item>

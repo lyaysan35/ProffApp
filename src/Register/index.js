@@ -34,7 +34,8 @@ class Register extends Component {
     const parsedResponse = await registerResponse.json();
     if (parsedResponse.status.code === 201) {
       console.log('Sign up successful');
-      // this.props.onRegister(parsedResponse.data.id);
+      localStorage.setItem('sessionId', parsedResponse.data.id);
+      this.props.onRegister();
       this.props.history.push('/create'); // Change url to /places programmatically with react-router
     } else {
       // Else display error message to the user

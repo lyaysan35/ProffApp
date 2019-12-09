@@ -32,7 +32,8 @@ class CreateProf extends Component {
   }
 
   addProfessional = async (e, professionalFromForm) => {
-    professionalFromForm.userId = this.props.userId;
+    // add field userId and set equal to ID of currently logged-in user
+    professionalFromForm.userId = localStorage.getItem('sessionId');
     console.log('professionalForm >>', professionalFromForm);
       e.preventDefault();
       try {
@@ -52,6 +53,7 @@ class CreateProf extends Component {
         // an object we can use
         const parsedResponse = await createdProfessionalResponse.json();
         console.log(parsedResponse, ' this is response');
+        this.props.updateProf(parsedResponse.data);
         this.props.history.push('/profList');
 
   
@@ -81,8 +83,8 @@ class CreateProf extends Component {
           <Form.Input type='text' name='location' value={this.state.location} onChange={this.handleChange}/>
           <Label>Image:</Label>
           <Form.Input type='text' name='personal_image_url' value={this.state.personal_image_url} onChange={this.handleChange}/>
-          <Label>Info:</Label>
-          <Form.Input type='text' name='info' value={this.state.info} onChange={this.handleChange}/>
+          <Label>Bio:</Label>
+          <Form.Input type='textbox' name='bio' value={this.state.bio} onChange={this.handleChange}/>
           <Label>Contact:</Label>
           <Form.Input type='text' name='contact' value={this.state.contact} onChange={this.handleChange}/>
           <Button type='Submit'>Create Professional</Button>
