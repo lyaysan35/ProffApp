@@ -35,31 +35,38 @@ class App extends Component {
 
     this.state = {
       activeSession: localStorage.getItem('sessionId'),
-      user: ''
+      prof: JSON.parse(localStorage.getItem('prof'))
     };
   }
 
   endSession = () => {
     localStorage.removeItem('sessionId');
+    localStorage.removeItem('prof');
     this.setState({
-      activeSession: localStorage.getItem('sessionId')
+      activeSession: localStorage.getItem('sessionId'),
+      prof: {}
     });
     console.log('Active Session:', this.state.activeSession);
     console.log('SessionId', localStorage.getItem('sessionId'));
   }
 
-  beginSession = () => {
+  beginSession = (prof) => {
+    // pass user
     this.setState({
-      activeSession: localStorage.getItem('sessionId')
+      activeSession: localStorage.getItem('sessionId'),
+      prof: prof
     });
+    localStorage.setItem('prof', JSON.stringify(prof));
     console.log('Active Session:', this.state.activeSession);
     console.log('SessionId', localStorage.getItem('sessionId'));
   }
 
   updateProf = (updatedProf) => {
     this.setState({
-      user: updatedProf
+      prof: updatedProf
     });
+    localStorage.setItem('prof', JSON.stringify(updatedProf));
+    console.log('prof in state', this.state.prof);
   }
 
   render() {
@@ -74,7 +81,7 @@ class App extends Component {
             <Route exact path="/register" render={(props) => <Register {...props} onRegister={ this.beginSession } /> } />
             <Route exact path="/rating" render={(props) => <Rating {...props} /> } />
             <Route exact path="/create" render={(props) => <CreateProfForm {...props} updateProf={ this.updateProf } /> } />
-            <Route exact path="/account" render={(props) => <AccountComponent {...props} professional={ this.state.user || defaultUser } updateProf={ this.updateProf } endSession={ this.endSession } /> } />
+            <Route exact path="/account" render={(props) => <AccountComponent {...props} professional={ this.state.prof || defaultUser } updateProf={ this.updateProf } endSession={ this.endSession } /> } />
             <Route component={ default404 } />
           </Switch>
       </div>

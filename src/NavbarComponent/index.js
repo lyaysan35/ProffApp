@@ -22,6 +22,9 @@ class NavbarComponent extends Component {
         <Menu.Item>
           <Link to="/">Galstuk</Link>
         </Menu.Item>
+        <Menu.Item>
+          <Link to="/profList">Browse</Link>
+        </Menu.Item>
         {
           (this.props.activeSession) ?
             <Menu.Item>

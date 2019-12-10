@@ -34,6 +34,7 @@ class AccountComponent extends Component {
     );
     // This is the parsed response from professional
     const deleteProfessionalParsed = await deleteProfessionalResponse.json();
+    this.props.endSession();
     console.log(deleteProfessionalParsed);
     this.props.history.push('/');
   }
@@ -52,15 +53,11 @@ class AccountComponent extends Component {
             
         const editResponseParsed = await editResponse.json();
         console.log('edit response', editResponseParsed);
-        this.props.updateProf(editResponseParsed);
+        this.props.updateProf(editResponseParsed.data);
 
     } catch(err) {
         console.log(err)
     }
-  }
-
-  submitForm = (e) => {
-    e.preventDefault();
   }
 
 
@@ -71,7 +68,7 @@ handleChange = (e) => {
     return(
       <div>
         <Card>
-          <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+          <Image src={ this.props.professional.personal_image_url || 'https://react.semantic-ui.com/images/avatar/large/matthew.png' } wrapped ui={false} />
           <Card.Content>
             <Card.Header>{ this.props.professional.name }</Card.Header>
             <Card.Meta>
@@ -134,8 +131,10 @@ handleChange = (e) => {
               type='text'
             />
           </Form.Group>
-          <Form.Input label='Email' placeholder='Email' type='text' />
-          <Form.Input label='Password' type='password' />
+         {
+          // <Form.Input label='Email' placeholder='Email' type='text' />
+          //<Form.Input label='Password' type='password' />
+        }
           <Button color='blue' onClick={ this.editProfessional }>Submit</Button>
         </Form>
         <Button basic color='red' onClick={ this.deleteProfessional }>Terminate Account</Button>

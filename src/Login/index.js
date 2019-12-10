@@ -38,11 +38,11 @@ class Login extends Component {
     if (parsedResponse.status.code === 200) {
       console.log('Sign up successful');
       console.log('PROPS >>', this.props);
-      localStorage.setItem('sessionId', parsedResponse.data.id);
+      localStorage.setItem('sessionId', parsedResponse.data.user.id);
       //
-      this.props.onLogin();
+      this.props.onLogin(parsedResponse.data.prof);
       // this.props.onLogin(parsedResponse.data.id);
-      this.props.history.push('/'); // Change url to /places programmatically with react-router
+      this.props.history.push('/account'); // Change url to /places programmatically with react-router
     } else {
       // Else display error message to the user
       this.setState({
