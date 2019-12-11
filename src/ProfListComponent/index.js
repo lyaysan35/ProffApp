@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ProfComponent from '../ProfComponent'
-import {Grid} from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 // import EditProfessionalModal from '../EditProfessionalModal';
 
 
@@ -138,9 +138,14 @@ class ProfessionalContainer extends Component {
       userProfessionals = this.props.location.state.professionals.data;
     } else {
       userProfessionals = this.state.professionals;
+    
     }
-    return (
-      <div style={{marginTop: '10px', backgroundColor: 'white', minHeight: '100vh', height: '100%'}}>
+    
+    return(
+      <ProfComponent openEditModal={this.openEditModal} professionals={userProfessionals} userId={this.props.userId} deleteProfessional={this.deleteProfessional} />
+    )
+
+      /*<div style={{marginTop: '10px', backgroundColor: 'white', minHeight: '100vh', height: '100%'}}>
         <Grid columns={2}  style={{ height: '100%' }} verticalAlign='top' stackable>
         <Grid.Row style={{backgroundColor: 'white'}}>
           <Grid.Column>
@@ -149,7 +154,7 @@ class ProfessionalContainer extends Component {
         </Grid.Row>
       </Grid>
       </div>
-      )
+      )*/
   }
 }
 

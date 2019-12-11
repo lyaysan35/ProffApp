@@ -7,7 +7,7 @@ function ProfComponent(props){
  console.log('professional >>', prof);
   // console.log('user >>', props.userId);
    return (
-       <Card key={prof.id} style={{width: '50%'}}>
+       <Card key={prof.id} style={{width: '20%'}}>
          <Card.Content>
            <Card.Header>{prof.name}</Card.Header>
            <Image src={prof.personal_image_url}/>
@@ -21,7 +21,7 @@ function ProfComponent(props){
        )
  })
  return (
-     <Card.Group>
+     <Card.Group itemsPerRow={4}>
        { professional }
      </Card.Group>
    )
