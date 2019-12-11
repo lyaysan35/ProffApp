@@ -20,15 +20,6 @@ const default404 = () => {
   )
 };
 
-const defaultUser = {
-  id: 1,
-  name: 'Emperor Brian',
-  field: 'Trouble-Making',
-  subfield: 'Messes',
-  location: 'Denver, CO',
-  bio: 'I like mee-mee, cartoons, and baby cars'
-};
-
 class App extends Component {
   constructor() {
     super()
@@ -81,7 +72,7 @@ class App extends Component {
             <Route exact path="/register" render={(props) => <Register {...props} onRegister={ this.beginSession } /> } />
             <Route exact path="/rating" render={(props) => <Rating {...props} /> } />
             <Route exact path="/create" render={(props) => <CreateProfForm {...props} updateProf={ this.updateProf } /> } />
-            <Route exact path="/account" render={(props) => <AccountComponent {...props} professional={ this.state.prof || defaultUser } updateProf={ this.updateProf } endSession={ this.endSession } /> } />
+            <Route exact path="/account" render={(props) => <AccountComponent {...props} professional={ this.state.prof } updateProf={ this.updateProf } endSession={ this.endSession } /> } />
             <Route component={ default404 } />
           </Switch>
       </div>
