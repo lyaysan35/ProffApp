@@ -5,52 +5,52 @@ https://react-proff.herokuapp.com/
 This web-app allows professionals with Russian language skills to register and provide contact details, along with their field and location. Users can then search for professionals by field and location. This will help Russian-speaking people who require professional services to get the help they need in their native language.
 
 ## Technologies used:
-	- React.js front-end
-	- semantic-ui-react library for styling the U.I.
-	- Python w/ Flask server-side
-	- PostgreSQL for the database
+- React.js front-end
+- semantic-ui-react library for styling the U.I.
+- Python w/ Flask server-side
+- PostgreSQL for the database
 
 ## Steps to Install & Run:
-	- First clone the repository:
+- First clone the repository:
 	`git clone https://github.com/lyaysan35/ProffApp.git`
 
-	- Next, install the dependencies:
+- Next, install the dependencies:
 	`npm install`
 
-	- Now, run the app:
+- Now, run the app:
 	`npm start`
 
 ## User Stories:
-	- As a Russian-speaking professional, I want to be able to register and enter my professional details and contact information, so that clients can find me and contact me.
-	- As a registered professional, I want to be able to edit or update my account information when I log in.
-	- As a registered professional, I want to have the ability to terminate my account after I have logged in.
-	- As a Russian-speaking user, I want to be able to search for a professional by a specific field of expertise and location, so that I can find the right professional for my needs.
-	- As a Russian-speaking user who needs professional services, I want to be able to browse through all professionals in the system.
+- As a Russian-speaking professional, I want to be able to register and enter my professional details and contact information, so that clients can find me and contact me.
+- As a registered professional, I want to be able to edit or update my account information when I log in.
+- As a registered professional, I want to have the ability to terminate my account after I have logged in.
+- As a Russian-speaking user, I want to be able to search for a professional by a specific field of expertise and location, so that I can find the right professional for my needs.
+- As a Russian-speaking user who needs professional services, I want to be able to browse through all professionals in the system.
 
 ## Model Relationship:
 Description: There are two models in this application. 
-	- User: contains the basic, required fields for authentication: 
-		- email
-		- password
-		- id.
-	- Professional: contains details related to a User's professional, public profile. These fields include: 
-		- field
-		- subfield
-		- location
-		- bio
-		- contactInfo
-		- id
-		- userId (foreign key)
+- User: contains the basic, required fields for authentication: 
+	- email
+	- password
+	- id.
+- Professional: contains details related to a User's professional, public profile. These fields include: 
+	- field
+	- subfield
+	- location
+	- bio
+	- contactInfo
+	- id
+	- userId (foreign key)
 These two models are linked by inserting the User's id as a foreign-key in the Professional model, ass diagramed below:
 `User <-- userId --> Professional`
 
 ## Future Features:
-	- Add Google Maps integration to allow users to visually browse Professionals by location
-	- Add ability for a user to send email or messages to a Professional in-app
-	- Add ability for users to leave reviews on Professionals' profiles
+- Add Google Maps integration to allow users to visually browse Professionals by location
+- Add ability for a user to send email or messages to a Professional in-app
+- Add ability for users to leave reviews on Professionals' profiles
 
 ## Problem Solving:
-	- Simplify application model by combining the Professional and User models into a single model OR create a third Client model to allow users who are seeking services to register
+- Simplify application model by combining the Professional and User models into a single model OR create a third Client model to allow users who are seeking services to register
 
 
 
